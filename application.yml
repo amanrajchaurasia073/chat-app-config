@@ -1,5 +1,5 @@
 server:
-  port: 8888 # The standard port for a config server
+  port: 8081 # The standard port for a config server
 
 spring:
   application:
