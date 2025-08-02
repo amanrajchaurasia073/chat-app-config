@@ -1,0 +1,19 @@
+server:
+  port: 8083
+
+spring:
+  application:
+    name: message-dispatcher-service
+
+  # --- Kafka CONSUMER Configuration ---
+  kafka:
+    consumer:
+      bootstrap-servers: localhost:9092
+      # A unique group ID for THIS service.
+      # It's different from the history service's group so they both get all messages.
+      group-id: dispatcher_service_group
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring.json.trusted.packages: "*"
