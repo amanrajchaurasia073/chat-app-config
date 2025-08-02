@@ -1,0 +1,19 @@
+server:
+  port: 8082
+
+spring:
+  # --- PostgreSQL Config for Rooms/Members ---
+  datasource:
+    url: jdbc:postgresql://localhost:5432/chat_db
+    username: postgres
+    password: abc@123
+  jpa:
+    hibernate:
+      ddl-auto: update
+  
+  # --- Kafka Producer Config ---
+  kafka:
+    producer:
+      bootstrap-servers: localhost:9092
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
