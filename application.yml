@@ -1,19 +1,29 @@
-server:
-  port: 8081 # The standard port for a config server
-
-spring:
-  application:
-    name: config-server # The name that will appear in Eureka
-  cloud:
-    config:
-      server:
-        git:
-          # IMPORTANT: Change this URL to your own Git repository!
-          uri: https://github.com/amanrajchaurasia073/chat-app-config.git
-          clone-on-start: true # Clones the repo when the server starts
-
-# This section tells the Config Server where to find the "phone book" (Eureka)
+# Shared Eureka configuration for ALL client services
 eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka/
+    fetch-registry: true
+    register-with-eureka: true
+
+
+# server:
+#   port: 8081 # The standard port for a config server
+
+# spring:
+#   application:
+#     name: config-server # The name that will appear in Eureka
+#   cloud:
+#     config:
+#       server:
+#         git:
+#           # IMPORTANT: Change this URL to your own Git repository!
+#           uri: https://github.com/amanrajchaurasia073/chat-app-config.git
+#           clone-on-start: true # Clones the repo when the server starts
+
+# # This section tells the Config Server where to find the "phone book" (Eureka)
+# eureka:
+#   client:
+#     service-url:
+#       defaultZone: http://localhost:8761/eureka/
+
